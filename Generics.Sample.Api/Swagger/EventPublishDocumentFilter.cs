@@ -12,11 +12,9 @@ namespace Webhooks.Api.Swagger
 {
     public class EventPublishDocumentFilter : IDocumentFilter
     {
-        readonly IServiceScopeFactory _serviceScopeFactory;
         readonly IEnumerable<Type> _events;
-        public EventPublishDocumentFilter(IServiceScopeFactory serviceScopeFactory)
+        public EventPublishDocumentFilter()
         {
-            _serviceScopeFactory = serviceScopeFactory;
             _events = this.GetType().GetEventTypesFromParentAssembly();
         }
         public void Apply(OpenApiDocument swaggerDoc, DocumentFilterContext context)
